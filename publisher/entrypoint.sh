@@ -17,6 +17,12 @@ echo "Running script to copy static content into NGinx volume"
 echo "Parameters:"
 echo "GIT URL: $GIT_URL"
 echo "Branch: $BRANCH"
+echo "Dir1: $DIR1"
+echo "Dir2: $DIR2"
+echo "Dir3: $DIR3"
+echo "Dir4: $DIR4"
+echo "Dir5: $DIR5"
+echo "Dir6: $DIR6"
 
 rm -Rf $TEMP_PATH
 git clone $GIT_URL $TEMP_PATH
