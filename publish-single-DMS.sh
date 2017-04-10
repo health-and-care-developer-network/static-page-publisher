@@ -6,12 +6,8 @@ REGISTRY_HOST=$1
 TARGET_HOST=$2
 GITHUB_URL=$3
 BRANCH=$4
-DIR1=$5
-DIR2=$6
-DIR3=$7
-DIR4=$8
-DIR5=$9
-DIR6=$10
+SOURCE_DIR=$5
+TARGET_DIR_NAME=$6
 
 VOLUME_PATH=${VOLUME_PATH:-/docker-data/static-pages}
 
@@ -45,6 +41,6 @@ docker $TARGET_PREFIX rm staticpublish
 docker $TARGET_PREFIX run \
 	--name staticpublish \
 	-v $VOLUME_PATH:/content \
-	--entrypoint="/entrypoint.sh" \
-	$SOURCE_URL $GITHUB_URL $BRANCH $DIR1 $DIR2 $DIR3 $DIR4 $DIR5 $DIR6
+	--entrypoint="/entrypoint-single-dms.sh" \
+	$SOURCE_URL $GITHUB_URL $BRANCH $SOURCE_DIR $TARGET_DIR_NAME
 docker $TARGET_PREFIX rm staticpublish

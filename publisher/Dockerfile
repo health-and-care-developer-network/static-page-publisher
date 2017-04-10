@@ -9,12 +9,14 @@ RUN groupadd -r generator -g 1000 && \
 
 # Copy in entrypoint scripts
 COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint-single-dms.sh /entrypoint-single-dms.sh
 RUN chmod +x entrypoint.sh
+RUN chmod +x entrypoint-single-dms.sh
 
 VOLUME ["/content"]
 
 # We will run the generator as a non-root user
 USER generator
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh", "/entrypoint-single-dms.sh"]
 
