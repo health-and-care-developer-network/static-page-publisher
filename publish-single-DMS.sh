@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Usage compilePages.sh registry_host target_host github_url branch dir1 dir2 dir3 dir4 dir5 dir6
+# Usage publish-single-DMS.sh registry_host target_host github_url branch source_dir target_dir
 
-REGISTRY_HOST=$1
-TARGET_HOST=$2
-GITHUB_URL=$3
-BRANCH=$4
-SOURCE_DIR=$5
-TARGET_DIR_NAME=$6
+REGISTRY_HOST=${REGISTRY_HOST:-${1}}
+TARGET_HOST=${TARGET_HOST:-${2}}
+GITHUB_URL=${GITHUB_URL:-${3}}
+BRANCH=${BRANCH:-${4}}
+SOURCE_DIR=${SOURCE_DIR:-${5}}
+TARGET_DIR_NAME=${TARGET_DIR_NAME:-${6}}
 
 VOLUME_PATH=${VOLUME_PATH:-/docker-data/static-pages}
 
